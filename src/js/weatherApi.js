@@ -12,7 +12,7 @@ export class WeatherAPI {
       console.error(`Can't request weather without a location query!`);
       return;
     }
-    let apiRequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${this.locationQuery}&days=3&aqi=yes&alerts=yes`);
+    let apiRequest = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}&q=${this.locationQuery}&days=3&aqi=yes&alerts=yes`, {mode: 'cors'});
     let responseJson = await apiRequest.json();
     return responseJson;
   }

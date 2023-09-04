@@ -6,6 +6,7 @@
 
 body {
   background: linear-gradient(to bottom, #86e1ff, #889f88);
+  background: url('img/sunny.jpg');
   background-size: cover;
   font-family: 'Lato';
   color: white;
@@ -111,7 +112,7 @@ main {
 #weather-info-cards {
   display: flex;
   flex-wrap: wrap;
-  width: 90vw;
+  max-width: 70vw;
   gap: 1em;
   justify-content: center;
 }
@@ -132,7 +133,15 @@ main {
 }
 
 .weather-card-quality-bar.good {
-  background-color: #22c55e;
+  background-color: #4ade80;
+}
+
+.weather-card-quality-bar.moderate {
+  background-color: #facc15;
+}
+
+.weather-card-quality-bar.bad {
+  background-color: #f87171;
 }
 
 /* mobile */
@@ -141,6 +150,55 @@ main {
     background-size: auto;
   }
   #weather-main-card {
-    width: 15em;
+    width: 13em;
   }
+  #weather-info-cards {
+    max-width: 90vw;
+  }
+}
+
+
+#sunrise-sunset-card {
+  width: 20em;
+}
+
+#sunrise-sunset-container {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: space-evenly;
+  gap: 3em;
+}
+
+#sunrise-sunset-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#sunrise-sunset-container + .weather-card-comment {
+  width: 100%;
+}
+
+/* forecast */
+#forecast-card {
+  width: 20em;
+}
+
+#forecast-container {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: space-evenly;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-day > img {
+  width: 3em;
+  height: auto;
 }

@@ -2,7 +2,7 @@ export class WeatherAPI {
   constructor(app){
     this.app = app;
     this.apiKey = 'dc972c4bd87a4309b88162144232008';
-    this.locationQuery = 'Manhattan';
+    this.locationQuery = 'Manhattan, New York';
   }
   setLocationQuery(locationString){
     this.locationQuery = locationString;

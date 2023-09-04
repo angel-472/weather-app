@@ -202,3 +202,12 @@ main {
   width: 3em;
   height: auto;
 }
+
+
+#error-message {
+  position: absolute;
+  transform: translate(0px, calc(.8rem * 2 + .5em));
+  font-size: .8rem;
+  display: none;
+  max-width: 20rem;
+}

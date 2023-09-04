@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -7,6 +8,11 @@ module.exports = {
     index: './src/js/index.js',
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/img', to: 'img'},
+      ],
+    }),
     new HtmlWebpackPlugin({
       title: 'Output Management',
       hash: true,

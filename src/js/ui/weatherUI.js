@@ -18,7 +18,7 @@ export class WeatherUI {
       if(query == ""){
         return;
       }
-      this.app.weatherApi.locationQuery = query;
+      this.app.weatherApi.setLocationQuery(query);
       let forecastResponse = this.app.weatherApi.getWeatherForecast();
       forecastResponse.then((data) => {
         console.log("Search Completed!");
@@ -28,10 +28,15 @@ export class WeatherUI {
         }
         else if(data.location !== undefined) {
           this.updateWeatherDisplay(data);
+          //save last search to localStorage
+          let lastSearchString = `${data.location.name}, ${data.location.region}`;
+          localStorage.setItem("weatherAppLastSearchString", lastSearchString);
         }
       })
     });
-
+    if(localStorage.getItem("weatherAppLastSearchString") !== null){
+      this.app.weatherApi.setLocationQuery(localStorage.getItem("weatherAppLastSearchString"));
+    }
     let forecastResponse = this.app.weatherApi.getWeatherForecast();
     forecastResponse.then((data) => {
       this.updateWeatherDisplay(data);
